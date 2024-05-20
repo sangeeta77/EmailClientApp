@@ -1,3 +1,4 @@
+
 class Contact {
     private String name;
     private String email;
@@ -54,5 +55,3 @@ class Contact {
                 '}';
     }
 }
-
-
