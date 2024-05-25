@@ -5,9 +5,12 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractContactManager implements ContactManagerInterface {
     protected List<Contact> contacts = new ArrayList<>();
-
+//Check for Duplicate Contacts before adding the Contact
     @Override
     public void addContact(Contact contact) {
+        if (contacts.stream().anyMatch(c -> c.getName().equals(contact.getName()))) {
+            throw new IllegalArgumentException("Contact with this name already exists.");
+        }
         contacts.add(contact);
     }
 
